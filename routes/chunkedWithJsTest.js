@@ -32,8 +32,15 @@ var writeHead = function(req, res) {
 var writeContent = function(req, res) {
     setTimeout(
         function(){
-            console.log('writeContent');
-            res.write('<script>console.log(\'writeContent\');$(\"#content\").html(\'<div id=\"main\">main</div><div id=\"right\">right</div><div class=\"clear-both\"></div>\')</script>');
+            console.log('writeContent-main');
+            res.write('<script>console.log(\'writeContent-main\');$(\"#main\").html(\'<div>main</div>\')</script>');
+        } ,
+        4000
+    );
+    setTimeout(
+        function(){
+            console.log('writeContent-right');
+            res.write('<script>console.log(\'writeContent-right\');$(\"#right\").html(\'<div>right</div>\')</script>');
             res.end();
         } ,
         6000
